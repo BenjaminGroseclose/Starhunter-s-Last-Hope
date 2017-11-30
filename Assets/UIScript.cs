@@ -9,15 +9,22 @@ public class UIScript : MonoBehaviour {
     public Button startButton;
     public Button quitButton;
     public GameObject panel;
+    public GameObject oxygenLevelUI;
+    public GameObject pieceItemText;
+    public GameObject inventoryText;
 
 	// Use this for initialization
 	void Start () {
 
-        /*
-         * Button btn = yourButton.GetComponent<Button>();
-         * btn.onClick.AddListener(TaskOnClick);
-         */
         panel = GameObject.Find("startUIPanel");
+        oxygenLevelUI = GameObject.Find("OxygenUI");
+        pieceItemText = GameObject.Find("pieceCountText");
+        inventoryText = GameObject.Find("inventoryText");
+
+        inventoryText.SetActive(false);
+        pieceItemText.SetActive(false);
+        oxygenLevelUI.SetActive(false);
+        
 
         Button startBtn = startButton.GetComponent<Button>();
         Button quitBtn = quitButton.GetComponent<Button>();
@@ -30,12 +37,16 @@ public class UIScript : MonoBehaviour {
 
     private void quitButtonOnClick()
     {
-        panel.SetActive(false);
+        Application.Quit();
     }
 
     private void startButtonOnClick()
     {
-        Application.Quit();
+        inventoryText.SetActive(true);
+        pieceItemText.SetActive(true);
+        oxygenLevelUI.SetActive(true);
+        panel.SetActive(false);
+        //Console.WriteLine("Start Button");
     }
 
     // Update is called once per frame
