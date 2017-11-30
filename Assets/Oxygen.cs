@@ -13,8 +13,8 @@ public class Oxygen : MonoBehaviour {
 	public Text oxygenText;
     public Slider oxygenSlider;
 
-    public Button restartButton;
-    public Button quitButton2;
+    public Button restartButtonLost;
+    public Button quitButton2Lost;
     public GameObject gameOverPanel;
     public int useCount;
 
@@ -47,7 +47,7 @@ public class Oxygen : MonoBehaviour {
         }
 
 		if (DistanceCalc () >= 41.0) {
-			oxygenLevel = oxygenLevel - (float) .005;
+			oxygenLevel = oxygenLevel - (float) .006;
 		}
 
         oxygenSlider.value = oxygenLevel;
@@ -62,8 +62,8 @@ public class Oxygen : MonoBehaviour {
             gameOverPanel.SetActive(true);
 
 
-            Button restartBtn = restartButton.GetComponent<Button>();
-            Button quitBtn2 = quitButton2.GetComponent<Button>();
+            Button restartBtn = restartButtonLost.GetComponent<Button>();
+            Button quitBtn2 = quitButton2Lost.GetComponent<Button>();
 
             restartBtn.onClick.AddListener(restartButtonOnClick);
             quitBtn2.onClick.AddListener(quitButton2OnClick);
@@ -76,7 +76,7 @@ public class Oxygen : MonoBehaviour {
     private void restartButtonOnClick()
     {
         oxygenLevel = 100;
-        SceneManager.LoadScene("Starhunter's Last Hope");
+        Application.LoadLevel(Application.loadedLevel);
     }
 
     private void quitButton2OnClick()

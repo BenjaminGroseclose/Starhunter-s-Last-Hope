@@ -192,6 +192,6 @@ public class Inventory : MonoBehaviour {
     private void restartGame()
     {
         pieceReturn = 0;
-        SceneManager.LoadScene("Starhunter's Last Hope");
+        Application.LoadLevel(Application.loadedLevel);
     }
 }

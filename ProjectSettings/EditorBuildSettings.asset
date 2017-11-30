@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Starhunter's Last Hope.unity
+    guid: 0ba0873106774a144a627ebd8dd51aae
+  - enabled: 1
+    path: Assets/2.unity
+    guid: e02beb1cbe3063b43a2793fb48f2db91
